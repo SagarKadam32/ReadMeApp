@@ -43,6 +43,7 @@ struct Book_Previews: PreviewProvider {
             Book.Image(title: Book().title)
             Book.Image(title: "")
             Book.Image(title: "💸")
+            BookRowView(book: .init())
         }
     }
 }

@@ -9,10 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+  
+        List(0 ..< 5) { item in
+            BookRowView(book: .init(title: "Title-\(item)", author: "Author#00\(item)"))
+        }
+
+    }
+}
+
+struct BookRowView : View {
+    let book : Book
+    var body: some View {
         HStack {
-            Book.Image(title: Book().title)
-            Text("Title")
-                .font(.title2)
+            Book.Image(title: book.title)
+            VStack(alignment: .leading) {
+                Text(book.title)
+                    .font(.title2)
+                Text(book.author)
+                    .font(.title3)
+                    .foregroundColor(.secondary)
+            }
         }
     }
 }
