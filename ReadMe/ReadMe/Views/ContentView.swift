@@ -10,8 +10,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
   
-        List(0 ..< 5) { item in
-            BookRowView(book: .init(title: "Title-\(item)", author: "Author#00\(item)"))
+        List(Library().sortedBooks, id: \.title) { book in
+            BookRowView(book: book)
         }
 
     }
@@ -28,8 +28,9 @@ struct BookRowView : View {
                 Text(book.author)
                     .font(.title3)
                     .foregroundColor(.secondary)
-            }
+            }.lineLimit(1)
         }
+        .padding(.vertical)
     }
 }
 
